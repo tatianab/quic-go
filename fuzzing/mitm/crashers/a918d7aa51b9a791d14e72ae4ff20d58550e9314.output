@@ -1,0 +1,190 @@
+panic: write udp 127.0.0.1:44924->127.0.0.1:45934: use of closed network connection
+
+goroutine 10720691 [running]:
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc0000d4ad0, 0xc91780, 0xc0055b03c0, 0xc00664cb40)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:202 +0x175
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 1 [select]:
+github.com/lucas-clemente/quic-go.(*client).establishSecureConnection(0xc0000aed00, 0xc96fe0, 0xc0000cc000, 0x0, 0x6)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/client.go:296 +0x1b1
+github.com/lucas-clemente/quic-go.(*client).dial(0xc0000aed00, 0xc96fe0, 0xc0000cc000, 0xc0000df8c0, 0xc00664cfa0)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/client.go:273 +0x330
+github.com/lucas-clemente/quic-go.dialContext(0xc96fe0, 0xc0000cc000, 0xc99b60, 0xc0000d4088, 0xc91780, 0xc0000df8c0, 0xc00578db50, 0xf, 0xc006772a80, 0xc00664cfa0, ...)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/client.go:138 +0x25b
+github.com/lucas-clemente/quic-go.DialContext(0xc96fe0, 0xc0000cc000, 0xc99b60, 0xc0000d4088, 0xc91780, 0xc0000df8c0, 0xc00578db50, 0xf, 0xc006772a80, 0xc00664cf00, ...)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/client.go:113 +0xc4
+github.com/lucas-clemente/quic-go.Dial(0xc99b60, 0xc0000d4088, 0xc91780, 0xc0000df8c0, 0xc00578db50, 0xf, 0xc006772a80, 0xc00664cf00, 0xbdd321, 0xc00341e000, ...)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/client.go:100 +0xd5
+github.com/lucas-clemente/quic-go/fuzzing/mitm.runTest(0xc007323680, 0x12a05f200)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:116 +0x415
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial(0x7f01383d5000, 0x5, 0x5, 0x3)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:216 +0x101
+go-fuzz-dep.Main(0xc00343df30, 0x4, 0x4)
+	go-fuzz-dep/main.go:36 +0x1ad
+main.main()
+	github.com/lucas-clemente/quic-go/fuzzing/mitm/go.fuzz.main/main.go:21 +0x7a
+
+goroutine 5 [syscall, 30 minutes]:
+os/signal.signal_recv(0x0)
+	runtime/sigqueue.go:147 +0x9c
+os/signal.loop()
+	/usr/lib/google-golang/src/os/signal/signal_unix.go:23 +0x52
+created by os/signal.init.0
+	/usr/lib/google-golang/src/os/signal/signal_unix.go:29 +0x41
+
+goroutine 10720703 [runnable]:
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc0000d4ad0, 0xc91780, 0xc0055b03c0, 0xc00664cbe0)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:199
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 10720720 [select]:
+github.com/lucas-clemente/quic-go.(*session).run(0xc00595f200, 0x0, 0x0)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/session.go:421 +0x15fa
+github.com/lucas-clemente/quic-go.(*client).establishSecureConnection.func1(0xc0000aed00, 0xc0055b4de0)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/client.go:289 +0x59
+created by github.com/lucas-clemente/quic-go.(*client).establishSecureConnection
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/client.go:288 +0x92
+
+goroutine 10720706 [runnable]:
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc0000d4ad0, 0xc91780, 0xc0055b03c0, 0xc00664cbe0)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:199
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 10720704 [runnable]:
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc0000d4ad0, 0xc91780, 0xc0055b03c0, 0xc00664cbe0)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:199
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 10720699 [runnable]:
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc0000d4ad0, 0xc91780, 0xc0055b03c0, 0xc00664cb40)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:199
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 10720719 [runnable]:
+github.com/lucas-clemente/quic-go.(*packetHandlerMap).listen(0xc007a86240)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/packet_handler_map.go:163
+created by github.com/lucas-clemente/quic-go.newPacketHandlerMap
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/packet_handler_map.go:62 +0x1b0
+
+goroutine 10720707 [runnable]:
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc0000d4ad0, 0xc91780, 0xc0055b03c0, 0xc00664cbe0)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:199
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 10720692 [runnable]:
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc0000d4ad0, 0xc91780, 0xc0055b03c0, 0xc00664cb40)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:199
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 10720713 [runnable]:
+github.com/lucas-clemente/quic-go.(*packetHandlerMap).listen(0xc007a86090)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/packet_handler_map.go:163
+created by github.com/lucas-clemente/quic-go.newPacketHandlerMap
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/packet_handler_map.go:62 +0x1b0
+
+goroutine 10720705 [runnable]:
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc0000d4ad0, 0xc91780, 0xc0055b03c0, 0xc00664cbe0)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:199
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 10720700 [runnable]:
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc0000d4ad0, 0xc91780, 0xc0055b03c0, 0xc00664cb40)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:199
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 10720697 [runnable]:
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc0000d4ad0, 0xc91780, 0xc0055b03c0, 0xc00664cb40)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:199
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 10720717 [runnable]:
+github.com/lucas-clemente/quic-go/integrationtests/tools/proxy.(*QuicProxy).runProxy(0xc00588ce60, 0xc007a92ea0, 0x2)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/integrationtests/tools/proxy/proxy.go:179
+created by github.com/lucas-clemente/quic-go/integrationtests/tools/proxy.NewQuicProxy
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/integrationtests/tools/proxy/proxy.go:138 +0x48e
+
+goroutine 10720721 [runnable]:
+github.com/lucas-clemente/quic-go/internal/handshake.(*cryptoSetup).RunHandshake(0xc006df0a20)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/internal/handshake/crypto_setup.go:254
+created by github.com/lucas-clemente/quic-go.(*session).run
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/session.go:413 +0xc2
+
+goroutine 10720693 [runnable]:
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc0000d4ad0, 0xc91780, 0xc0055b03c0, 0xc00664cb40)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:199
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 10720695 [runnable]:
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc0000d4ad0, 0xc91780, 0xc0055b03c0, 0xc00664cb40)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:199
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 10720722 [select]:
+github.com/lucas-clemente/quic-go.(*sendQueue).Run(0xc007a93500, 0xc99b60, 0xc0000d4ad0)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/send_queue.go:25 +0x129
+github.com/lucas-clemente/quic-go.(*session).run.func1(0xc00595f200)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/session.go:415 +0x4c
+created by github.com/lucas-clemente/quic-go.(*session).run
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/session.go:414 +0xe7
+
+goroutine 10720702 [runnable]:
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc0000d4ad0, 0xc91780, 0xc0055b03c0, 0xc00664cbe0)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:199
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 10720694 [runnable]:
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc0000d4ad0, 0xc91780, 0xc0055b03c0, 0xc00664cb40)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:199
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 10720714 [runnable]:
+github.com/lucas-clemente/quic-go/fuzzing/mitm.startServerAndProxy.func1(0xc952e0, 0xc00664ce60)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:83
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.startServerAndProxy
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:83 +0x2cd
+
+goroutine 10720698 [runnable]:
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc0000d4ad0, 0xc91780, 0xc0055b03c0, 0xc00664cb40)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:199
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 10720701 [runnable]:
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc0000d4ad0, 0xc91780, 0xc0055b03c0, 0xc00664cbe0)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:199
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 10720696 [runnable]:
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc0000d4ad0, 0xc91780, 0xc0055b03c0, 0xc00664cb40)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:199
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 10720709 [runnable]:
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc0000d4ad0, 0xc91780, 0xc0055b03c0, 0xc00664cbe0)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:199
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 10720708 [runnable]:
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc0000d4ad0, 0xc91780, 0xc0055b03c0, 0xc00664cbe0)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:199
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+exit status 2

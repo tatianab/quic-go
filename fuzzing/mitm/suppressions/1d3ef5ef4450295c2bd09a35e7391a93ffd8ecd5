@@ -1,0 +1,5 @@
+panic: CRYPTO_ERROR: expected handshake message NewSessionTicket to have encryption level 1-RTT, has Initial
+github.com/lucas-clemente/quic-go/fuzzing/mitm.runTest
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial
+go-fuzz-dep.Main
+main.main

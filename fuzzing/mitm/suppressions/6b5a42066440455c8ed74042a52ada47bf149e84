@@ -1,0 +1,5 @@
+panic: NO_ERROR: Handshake did not complete in time
+github.com/lucas-clemente/quic-go/fuzzing/mitm.runTest
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial
+go-fuzz-dep.Main
+main.main

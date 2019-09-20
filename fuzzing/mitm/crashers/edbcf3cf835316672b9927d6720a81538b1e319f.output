@@ -1,0 +1,32 @@
+panic: write udp 127.0.0.1:43598->127.0.0.1:34744: use of closed network connection
+
+goroutine 7985619 [running]:
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc000010128, 0xc91780, 0xc00842d920, 0xc00484dd60)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:202 +0x175
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 1 [syscall]:
+syscall.Syscall(0x0, 0x4, 0xc003805e47, 0x9, 0x18, 0x18, 0x0)
+	syscall/asm_linux_amd64.s:18 +0x5
+syscall.read(0x4, 0xc003805e47, 0x9, 0x9, 0x18, 0x0, 0x0)
+	syscall/zsyscall_linux_amd64.go:732 +0x5a
+syscall.Read(...)
+	syscall/syscall_unix.go:183
+go-fuzz-dep.FD.read(...)
+	go-fuzz-dep/sys_posix.go:27
+go-fuzz-dep.read(0x4, 0xc003805ed8, 0x3)
+	go-fuzz-dep/main.go:47 +0x8e
+go-fuzz-dep.Main(0xc003805f30, 0x4, 0x4)
+	go-fuzz-dep/main.go:26 +0x249
+main.main()
+	github.com/lucas-clemente/quic-go/fuzzing/mitm/go.fuzz.main/main.go:21 +0x7a
+
+goroutine 6 [syscall, 22 minutes]:
+os/signal.signal_recv(0x0)
+	runtime/sigqueue.go:147 +0x9c
+os/signal.loop()
+	/usr/lib/google-golang/src/os/signal/signal_unix.go:23 +0x52
+created by os/signal.init.0
+	/usr/lib/google-golang/src/os/signal/signal_unix.go:29 +0x41
+exit status 2

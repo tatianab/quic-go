@@ -1,0 +1,672 @@
+panic: write udp 127.0.0.1:42306->127.0.0.1:55157: use of closed network connection
+
+goroutine 488744 [running]:
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc000010668, 0xc91780, 0xc005567f80, 0xc004a80320)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:202 +0x175
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 1 [semacquire]:
+internal/poll.runtime_Semacquire(0xc00765f0a8)
+	runtime/sema.go:61 +0x42
+internal/poll.(*FD).Close(0xc00765f080, 0xc00765f080, 0x0)
+	/usr/lib/google-golang/src/internal/poll/fd_unix.go:109 +0x1e1
+net.(*netFD).Close(0xc00765f080, 0x1, 0x0)
+	/usr/lib/google-golang/src/net/fd_unix.go:184 +0x67
+net.(*conn).Close(0xc000010668, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/net.go:208 +0x91
+github.com/lucas-clemente/quic-go/fuzzing/mitm.cleanup()
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:154 +0xd3
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial(0x7f64a85a2000, 0x4, 0x4, 0x3)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:217 +0x106
+go-fuzz-dep.Main(0xc00010ff30, 0x4, 0x4)
+	go-fuzz-dep/main.go:36 +0x1ad
+main.main()
+	github.com/lucas-clemente/quic-go/fuzzing/mitm/go.fuzz.main/main.go:21 +0x7a
+
+goroutine 6 [syscall, 1 minutes]:
+os/signal.signal_recv(0x0)
+	runtime/sigqueue.go:147 +0x9c
+os/signal.loop()
+	/usr/lib/google-golang/src/os/signal/signal_unix.go:23 +0x52
+created by os/signal.init.0
+	/usr/lib/google-golang/src/os/signal/signal_unix.go:29 +0x41
+
+goroutine 488753 [runnable]:
+internal/poll.runtime_Semacquire(0xc00765f08c)
+	runtime/sema.go:61 +0x42
+internal/poll.(*fdMutex).rwlock(0xc00765f080, 0x523800, 0x20)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:154 +0x20d
+internal/poll.(*FD).writeLock(0xc00765f080, 0xc003932dd8, 0x7180e7)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:239 +0x4e
+internal/poll.(*FD).WriteTo(0xc00765f080, 0xc003636980, 0x27, 0x40, 0xc8b980, 0xc007d7f7a0, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/internal/poll/fd_unix.go:322 +0x6f
+net.(*netFD).writeTo(0xc00765f080, 0xc003636980, 0x27, 0x40, 0xc8b980, 0xc007d7f7a0, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/fd_unix.go:226 +0x87
+net.(*UDPConn).writeTo(0xc000010668, 0xc003636980, 0x27, 0x40, 0xc005567f80, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/udpsock_posix.go:80 +0x18c
+net.(*UDPConn).WriteTo(0xc000010668, 0xc003636980, 0x27, 0x40, 0xc91780, 0xc005567f80, 0x51474fff, 0xc005d327e0, 0x6)
+	/usr/lib/google-golang/src/net/udpsock.go:170 +0x11d
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc000010668, 0xc91780, 0xc005567f80, 0xc004a803c0)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:201 +0x10f
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 488750 [runnable]:
+internal/poll.runtime_Semacquire(0xc00765f08c)
+	runtime/sema.go:61 +0x42
+internal/poll.(*fdMutex).rwlock(0xc00765f080, 0x523800, 0x20)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:154 +0x20d
+internal/poll.(*FD).writeLock(0xc00765f080, 0xc00392edd8, 0x7180e7)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:239 +0x4e
+internal/poll.(*FD).WriteTo(0xc00765f080, 0xc0036368c0, 0x27, 0x40, 0xc8b980, 0xc007d7e180, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/internal/poll/fd_unix.go:322 +0x6f
+net.(*netFD).writeTo(0xc00765f080, 0xc0036368c0, 0x27, 0x40, 0xc8b980, 0xc007d7e180, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/fd_unix.go:226 +0x87
+net.(*UDPConn).writeTo(0xc000010668, 0xc0036368c0, 0x27, 0x40, 0xc005567f80, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/udpsock_posix.go:80 +0x18c
+net.(*UDPConn).WriteTo(0xc000010668, 0xc0036368c0, 0x27, 0x40, 0xc91780, 0xc005567f80, 0x51474fff, 0xc005d327e0, 0x6)
+	/usr/lib/google-golang/src/net/udpsock.go:170 +0x11d
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc000010668, 0xc91780, 0xc005567f80, 0xc004a803c0)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:201 +0x10f
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 488756 [runnable]:
+internal/poll.runtime_Semacquire(0xc00765f08c)
+	runtime/sema.go:61 +0x42
+internal/poll.(*fdMutex).rwlock(0xc00765f080, 0x523800, 0x20)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:154 +0x20d
+internal/poll.(*FD).writeLock(0xc00765f080, 0xc00392cdd8, 0x7180e7)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:239 +0x4e
+internal/poll.(*FD).WriteTo(0xc00765f080, 0xc003636a40, 0x27, 0x40, 0xc8b980, 0xc007d64b60, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/internal/poll/fd_unix.go:322 +0x6f
+net.(*netFD).writeTo(0xc00765f080, 0xc003636a40, 0x27, 0x40, 0xc8b980, 0xc007d64b60, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/fd_unix.go:226 +0x87
+net.(*UDPConn).writeTo(0xc000010668, 0xc003636a40, 0x27, 0x40, 0xc005567f80, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/udpsock_posix.go:80 +0x18c
+net.(*UDPConn).WriteTo(0xc000010668, 0xc003636a40, 0x27, 0x40, 0xc91780, 0xc005567f80, 0x51474fff, 0xc005d327f6, 0x6)
+	/usr/lib/google-golang/src/net/udpsock.go:170 +0x11d
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc000010668, 0xc91780, 0xc005567f80, 0xc004a80460)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:201 +0x10f
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 488743 [runnable]:
+syscall.Syscall6(0x2c, 0x11, 0xc003636700, 0x27, 0x0, 0xc007dbf16c, 0x10, 0x27, 0x27, 0x0)
+	syscall/asm_linux_amd64.s:44 +0x5
+syscall.sendto(0x11, 0xc003636700, 0x27, 0x40, 0x0, 0xc007dbf16c, 0x10, 0x0, 0x0)
+	syscall/zsyscall_linux_amd64.go:1635 +0x92
+syscall.Sendto(0x11, 0xc003636700, 0x27, 0x40, 0x0, 0xc8b980, 0xc007dbf160, 0x4, 0x4)
+	syscall/syscall_unix.go:287 +0xac
+internal/poll.(*FD).WriteTo(0xc00765f080, 0xc003636700, 0x27, 0x40, 0xc8b980, 0xc007dbf160, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/internal/poll/fd_unix.go:330 +0x203
+net.(*netFD).writeTo(0xc00765f080, 0xc003636700, 0x27, 0x40, 0xc8b980, 0xc007dbf160, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/fd_unix.go:226 +0x87
+net.(*UDPConn).writeTo(0xc000010668, 0xc003636700, 0x27, 0x40, 0xc005567f80, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/udpsock_posix.go:80 +0x18c
+net.(*UDPConn).WriteTo(0xc000010668, 0xc003636700, 0x27, 0x40, 0xc91780, 0xc005567f80, 0x51474fff, 0xc005d327a6, 0x6)
+	/usr/lib/google-golang/src/net/udpsock.go:170 +0x11d
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc000010668, 0xc91780, 0xc005567f80, 0xc004a80320)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:201 +0x10f
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 488747 [runnable]:
+internal/poll.runtime_Semacquire(0xc00765f08c)
+	runtime/sema.go:61 +0x42
+internal/poll.(*fdMutex).rwlock(0xc00765f080, 0x523800, 0x20)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:154 +0x20d
+internal/poll.(*FD).writeLock(0xc00765f080, 0xc00006cdd8, 0x7180e7)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:239 +0x4e
+internal/poll.(*FD).WriteTo(0xc00765f080, 0xc003636800, 0x27, 0x40, 0xc8b980, 0xc007d92d20, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/internal/poll/fd_unix.go:322 +0x6f
+net.(*netFD).writeTo(0xc00765f080, 0xc003636800, 0x27, 0x40, 0xc8b980, 0xc007d92d20, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/fd_unix.go:226 +0x87
+net.(*UDPConn).writeTo(0xc000010668, 0xc003636800, 0x27, 0x40, 0xc005567f80, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/udpsock_posix.go:80 +0x18c
+net.(*UDPConn).WriteTo(0xc000010668, 0xc003636800, 0x27, 0x40, 0xc91780, 0xc005567f80, 0x51474fff, 0xc005d327e0, 0x6)
+	/usr/lib/google-golang/src/net/udpsock.go:170 +0x11d
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc000010668, 0xc91780, 0xc005567f80, 0xc004a803c0)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:201 +0x10f
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 488772 [runnable]:
+internal/poll.runtime_Semacquire(0xc00765f08c)
+	runtime/sema.go:61 +0x42
+internal/poll.(*fdMutex).rwlock(0xc00765f080, 0x523800, 0x20)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:154 +0x20d
+internal/poll.(*FD).writeLock(0xc00765f080, 0xc0036d2dd8, 0x7180e7)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:239 +0x4e
+internal/poll.(*FD).WriteTo(0xc00765f080, 0xc003636e40, 0x27, 0x40, 0xc8b980, 0xc007ceaf60, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/internal/poll/fd_unix.go:322 +0x6f
+net.(*netFD).writeTo(0xc00765f080, 0xc003636e40, 0x27, 0x40, 0xc8b980, 0xc007ceaf60, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/fd_unix.go:226 +0x87
+net.(*UDPConn).writeTo(0xc000010668, 0xc003636e40, 0x27, 0x40, 0xc005567f80, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/udpsock_posix.go:80 +0x18c
+net.(*UDPConn).WriteTo(0xc000010668, 0xc003636e40, 0x27, 0x40, 0xc91780, 0xc005567f80, 0x51474fff, 0xc005d32830, 0x6)
+	/usr/lib/google-golang/src/net/udpsock.go:170 +0x11d
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc000010668, 0xc91780, 0xc005567f80, 0xc004a80500)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:201 +0x10f
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 488760 [runnable]:
+internal/poll.runtime_Semacquire(0xc00765f08c)
+	runtime/sema.go:61 +0x42
+internal/poll.(*fdMutex).rwlock(0xc00765f080, 0x523800, 0x20)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:154 +0x20d
+internal/poll.(*FD).writeLock(0xc00765f080, 0xc0036c6dd8, 0x7180e7)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:239 +0x4e
+internal/poll.(*FD).WriteTo(0xc00765f080, 0xc003636b40, 0x27, 0x40, 0xc8b980, 0xc007d443e0, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/internal/poll/fd_unix.go:322 +0x6f
+net.(*netFD).writeTo(0xc00765f080, 0xc003636b40, 0x27, 0x40, 0xc8b980, 0xc007d443e0, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/fd_unix.go:226 +0x87
+net.(*UDPConn).writeTo(0xc000010668, 0xc003636b40, 0x27, 0x40, 0xc005567f80, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/udpsock_posix.go:80 +0x18c
+net.(*UDPConn).WriteTo(0xc000010668, 0xc003636b40, 0x27, 0x40, 0xc91780, 0xc005567f80, 0xfb1b957051474fff, 0xc005d327f6, 0x6)
+	/usr/lib/google-golang/src/net/udpsock.go:170 +0x11d
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc000010668, 0xc91780, 0xc005567f80, 0xc004a80460)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:201 +0x10f
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 488768 [runnable]:
+internal/poll.runtime_Semacquire(0xc00765f08c)
+	runtime/sema.go:61 +0x42
+internal/poll.(*fdMutex).rwlock(0xc00765f080, 0x523800, 0x20)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:154 +0x20d
+internal/poll.(*FD).writeLock(0xc00765f080, 0xc0036d6dd8, 0x7180e7)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:239 +0x4e
+internal/poll.(*FD).WriteTo(0xc00765f080, 0xc003636d40, 0x27, 0x40, 0xc8b980, 0xc007cff7a0, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/internal/poll/fd_unix.go:322 +0x6f
+net.(*netFD).writeTo(0xc00765f080, 0xc003636d40, 0x27, 0x40, 0xc8b980, 0xc007cff7a0, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/fd_unix.go:226 +0x87
+net.(*UDPConn).writeTo(0xc000010668, 0xc003636d40, 0x27, 0x40, 0xc005567f80, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/udpsock_posix.go:80 +0x18c
+net.(*UDPConn).WriteTo(0xc000010668, 0xc003636d40, 0x27, 0x40, 0xc91780, 0xc005567f80, 0x51474fff, 0xc005d32830, 0x6)
+	/usr/lib/google-golang/src/net/udpsock.go:170 +0x11d
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc000010668, 0xc91780, 0xc005567f80, 0xc004a80500)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:201 +0x10f
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 488759 [runnable]:
+internal/poll.runtime_Semacquire(0xc00765f08c)
+	runtime/sema.go:61 +0x42
+internal/poll.(*fdMutex).rwlock(0xc00765f080, 0x523800, 0x20)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:154 +0x20d
+internal/poll.(*FD).writeLock(0xc00765f080, 0xc0036c5dd8, 0x7180e7)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:239 +0x4e
+internal/poll.(*FD).WriteTo(0xc00765f080, 0xc003636b00, 0x27, 0x40, 0xc8b980, 0xc007d65ec0, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/internal/poll/fd_unix.go:322 +0x6f
+net.(*netFD).writeTo(0xc00765f080, 0xc003636b00, 0x27, 0x40, 0xc8b980, 0xc007d65ec0, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/fd_unix.go:226 +0x87
+net.(*UDPConn).writeTo(0xc000010668, 0xc003636b00, 0x27, 0x40, 0xc005567f80, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/udpsock_posix.go:80 +0x18c
+net.(*UDPConn).WriteTo(0xc000010668, 0xc003636b00, 0x27, 0x40, 0xc91780, 0xc005567f80, 0x387d11ee51474fff, 0xc005d327f6, 0x6)
+	/usr/lib/google-golang/src/net/udpsock.go:170 +0x11d
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc000010668, 0xc91780, 0xc005567f80, 0xc004a80460)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:201 +0x10f
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 488748 [runnable]:
+internal/poll.runtime_Semacquire(0xc00765f08c)
+	runtime/sema.go:61 +0x42
+internal/poll.(*fdMutex).rwlock(0xc00765f080, 0x523800, 0x20)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:154 +0x20d
+internal/poll.(*FD).writeLock(0xc00765f080, 0xc00006ddd8, 0x7180e7)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:239 +0x4e
+internal/poll.(*FD).WriteTo(0xc00765f080, 0xc003636840, 0x27, 0x40, 0xc8b980, 0xc007d933c0, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/internal/poll/fd_unix.go:322 +0x6f
+net.(*netFD).writeTo(0xc00765f080, 0xc003636840, 0x27, 0x40, 0xc8b980, 0xc007d933c0, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/fd_unix.go:226 +0x87
+net.(*UDPConn).writeTo(0xc000010668, 0xc003636840, 0x27, 0x40, 0xc005567f80, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/udpsock_posix.go:80 +0x18c
+net.(*UDPConn).WriteTo(0xc000010668, 0xc003636840, 0x27, 0x40, 0xc91780, 0xc005567f80, 0x51474fff, 0xc005d327e0, 0x6)
+	/usr/lib/google-golang/src/net/udpsock.go:170 +0x11d
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc000010668, 0xc91780, 0xc005567f80, 0xc004a803c0)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:201 +0x10f
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 488746 [runnable]:
+internal/poll.runtime_Semacquire(0xc00765f08c)
+	runtime/sema.go:61 +0x42
+internal/poll.(*fdMutex).rwlock(0xc00765f080, 0x523800, 0x20)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:154 +0x20d
+internal/poll.(*FD).writeLock(0xc00765f080, 0xc003933dd8, 0x7180e7)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:239 +0x4e
+internal/poll.(*FD).WriteTo(0xc00765f080, 0xc0036367c0, 0x27, 0x40, 0xc8b980, 0xc007d926a0, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/internal/poll/fd_unix.go:322 +0x6f
+net.(*netFD).writeTo(0xc00765f080, 0xc0036367c0, 0x27, 0x40, 0xc8b980, 0xc007d926a0, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/fd_unix.go:226 +0x87
+net.(*UDPConn).writeTo(0xc000010668, 0xc0036367c0, 0x27, 0x40, 0xc005567f80, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/udpsock_posix.go:80 +0x18c
+net.(*UDPConn).WriteTo(0xc000010668, 0xc0036367c0, 0x27, 0x40, 0xc91780, 0xc005567f80, 0x51474fff, 0xc005d327e0, 0x6)
+	/usr/lib/google-golang/src/net/udpsock.go:170 +0x11d
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc000010668, 0xc91780, 0xc005567f80, 0xc004a803c0)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:201 +0x10f
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 488762 [runnable]:
+internal/poll.runtime_Semacquire(0xc00765f08c)
+	runtime/sema.go:61 +0x42
+internal/poll.(*fdMutex).rwlock(0xc00765f080, 0x523800, 0x20)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:154 +0x20d
+internal/poll.(*FD).writeLock(0xc00765f080, 0xc0036d8dd8, 0x7180e7)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:239 +0x4e
+internal/poll.(*FD).WriteTo(0xc00765f080, 0xc003636bc0, 0x27, 0x40, 0xc8b980, 0xc007d44fc0, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/internal/poll/fd_unix.go:322 +0x6f
+net.(*netFD).writeTo(0xc00765f080, 0xc003636bc0, 0x27, 0x40, 0xc8b980, 0xc007d44fc0, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/fd_unix.go:226 +0x87
+net.(*UDPConn).writeTo(0xc000010668, 0xc003636bc0, 0x27, 0x40, 0xc005567f80, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/udpsock_posix.go:80 +0x18c
+net.(*UDPConn).WriteTo(0xc000010668, 0xc003636bc0, 0x27, 0x40, 0xc91780, 0xc005567f80, 0x51474fff, 0xc005d327f6, 0x6)
+	/usr/lib/google-golang/src/net/udpsock.go:170 +0x11d
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc000010668, 0xc91780, 0xc005567f80, 0xc004a80460)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:201 +0x10f
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 488766 [runnable]:
+internal/poll.runtime_Semacquire(0xc00765f08c)
+	runtime/sema.go:61 +0x42
+internal/poll.(*fdMutex).rwlock(0xc00765f080, 0x523800, 0x20)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:154 +0x20d
+internal/poll.(*FD).writeLock(0xc00765f080, 0xc0036d4dd8, 0x7180e7)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:239 +0x4e
+internal/poll.(*FD).WriteTo(0xc00765f080, 0xc003636cc0, 0x27, 0x40, 0xc8b980, 0xc007cfea20, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/internal/poll/fd_unix.go:322 +0x6f
+net.(*netFD).writeTo(0xc00765f080, 0xc003636cc0, 0x27, 0x40, 0xc8b980, 0xc007cfea20, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/fd_unix.go:226 +0x87
+net.(*UDPConn).writeTo(0xc000010668, 0xc003636cc0, 0x27, 0x40, 0xc005567f80, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/udpsock_posix.go:80 +0x18c
+net.(*UDPConn).WriteTo(0xc000010668, 0xc003636cc0, 0x27, 0x40, 0xc91780, 0xc005567f80, 0x5025f31651474fff, 0xc005d32830, 0x6)
+	/usr/lib/google-golang/src/net/udpsock.go:170 +0x11d
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc000010668, 0xc91780, 0xc005567f80, 0xc004a80500)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:201 +0x10f
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 488754 [runnable]:
+internal/poll.runtime_Semacquire(0xc00765f08c)
+	runtime/sema.go:61 +0x42
+internal/poll.(*fdMutex).rwlock(0xc00765f080, 0x523800, 0x20)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:154 +0x20d
+internal/poll.(*FD).writeLock(0xc00765f080, 0xc0036c8dd8, 0x7180e7)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:239 +0x4e
+internal/poll.(*FD).WriteTo(0xc00765f080, 0xc0036369c0, 0x27, 0x40, 0xc8b980, 0xc007d7fe40, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/internal/poll/fd_unix.go:322 +0x6f
+net.(*netFD).writeTo(0xc00765f080, 0xc0036369c0, 0x27, 0x40, 0xc8b980, 0xc007d7fe40, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/fd_unix.go:226 +0x87
+net.(*UDPConn).writeTo(0xc000010668, 0xc0036369c0, 0x27, 0x40, 0xc005567f80, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/udpsock_posix.go:80 +0x18c
+net.(*UDPConn).WriteTo(0xc000010668, 0xc0036369c0, 0x27, 0x40, 0xc91780, 0xc005567f80, 0x51474fff, 0xc005d327e0, 0x6)
+	/usr/lib/google-golang/src/net/udpsock.go:170 +0x11d
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc000010668, 0xc91780, 0xc005567f80, 0xc004a803c0)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:201 +0x10f
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 488764 [runnable]:
+internal/poll.runtime_Semacquire(0xc00765f08c)
+	runtime/sema.go:61 +0x42
+internal/poll.(*fdMutex).rwlock(0xc00765f080, 0x523800, 0x20)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:154 +0x20d
+internal/poll.(*FD).writeLock(0xc00765f080, 0xc0036c2dd8, 0x7180e7)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:239 +0x4e
+internal/poll.(*FD).WriteTo(0xc00765f080, 0xc003636c40, 0x27, 0x40, 0xc8b980, 0xc007d45cc0, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/internal/poll/fd_unix.go:322 +0x6f
+net.(*netFD).writeTo(0xc00765f080, 0xc003636c40, 0x27, 0x40, 0xc8b980, 0xc007d45cc0, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/fd_unix.go:226 +0x87
+net.(*UDPConn).writeTo(0xc000010668, 0xc003636c40, 0x27, 0x40, 0xc005567f80, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/udpsock_posix.go:80 +0x18c
+net.(*UDPConn).WriteTo(0xc000010668, 0xc003636c40, 0x27, 0x40, 0xc91780, 0xc005567f80, 0x51474fff, 0xc005d327f6, 0x6)
+	/usr/lib/google-golang/src/net/udpsock.go:170 +0x11d
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc000010668, 0xc91780, 0xc005567f80, 0xc004a80460)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:201 +0x10f
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 488751 [runnable]:
+internal/poll.runtime_Semacquire(0xc00765f08c)
+	runtime/sema.go:61 +0x42
+internal/poll.(*fdMutex).rwlock(0xc00765f080, 0x523800, 0x20)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:154 +0x20d
+internal/poll.(*FD).writeLock(0xc00765f080, 0xc00392fdd8, 0x7180e7)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:239 +0x4e
+internal/poll.(*FD).WriteTo(0xc00765f080, 0xc003636900, 0x27, 0x40, 0xc8b980, 0xc007d7e900, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/internal/poll/fd_unix.go:322 +0x6f
+net.(*netFD).writeTo(0xc00765f080, 0xc003636900, 0x27, 0x40, 0xc8b980, 0xc007d7e900, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/fd_unix.go:226 +0x87
+net.(*UDPConn).writeTo(0xc000010668, 0xc003636900, 0x27, 0x40, 0xc005567f80, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/udpsock_posix.go:80 +0x18c
+net.(*UDPConn).WriteTo(0xc000010668, 0xc003636900, 0x27, 0x40, 0xc91780, 0xc005567f80, 0x51474fff, 0xc005d327e0, 0x6)
+	/usr/lib/google-golang/src/net/udpsock.go:170 +0x11d
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc000010668, 0xc91780, 0xc005567f80, 0xc004a803c0)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:201 +0x10f
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 485032 [IO wait]:
+internal/poll.runtime_pollWait(0x7f64ada7ff20, 0x72, 0x0)
+	runtime/netpoll.go:184 +0x55
+internal/poll.(*pollDesc).wait(0xc00765f298, 0x72, 0x500, 0x5ac, 0x0)
+	/usr/lib/google-golang/src/internal/poll/fd_poll_runtime.go:87 +0xe4
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/lib/google-golang/src/internal/poll/fd_poll_runtime.go:92
+internal/poll.(*FD).ReadFrom(0xc00765f280, 0xc003692600, 0x5ac, 0x5ac, 0x0, 0x0, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/internal/poll/fd_unix.go:219 +0x302
+net.(*netFD).readFrom(0xc00765f280, 0xc003692600, 0x5ac, 0x5ac, 0x562996, 0x522f96, 0x15, 0x80, 0x14)
+	/usr/lib/google-golang/src/net/fd_unix.go:208 +0x73
+net.(*UDPConn).readFrom(0xc0000106a8, 0xc003692600, 0x5ac, 0x5ac, 0x56272b, 0x528442, 0xc000068ee8, 0x55ad1c)
+	/usr/lib/google-golang/src/net/udpsock_posix.go:47 +0x82
+net.(*UDPConn).ReadFromUDP(0xc0000106a8, 0xc003692600, 0x5ac, 0x5ac, 0x4c4b40, 0xc00757a501, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/udpsock.go:109 +0xb6
+github.com/lucas-clemente/quic-go/integrationtests/tools/proxy.(*QuicProxy).runProxy(0xc005628be0, 0xc007017740, 0x2)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/integrationtests/tools/proxy/proxy.go:182 +0xba
+created by github.com/lucas-clemente/quic-go/integrationtests/tools/proxy.NewQuicProxy
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/integrationtests/tools/proxy/proxy.go:138 +0x48e
+
+goroutine 488749 [runnable]:
+internal/poll.runtime_Semacquire(0xc00765f08c)
+	runtime/sema.go:61 +0x42
+internal/poll.(*fdMutex).rwlock(0xc00765f080, 0x523800, 0x20)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:154 +0x20d
+internal/poll.(*FD).writeLock(0xc00765f080, 0xc000066dd8, 0x7180e7)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:239 +0x4e
+internal/poll.(*FD).WriteTo(0xc00765f080, 0xc003636880, 0x27, 0x40, 0xc8b980, 0xc007d93a20, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/internal/poll/fd_unix.go:322 +0x6f
+net.(*netFD).writeTo(0xc00765f080, 0xc003636880, 0x27, 0x40, 0xc8b980, 0xc007d93a20, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/fd_unix.go:226 +0x87
+net.(*UDPConn).writeTo(0xc000010668, 0xc003636880, 0x27, 0x40, 0xc005567f80, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/udpsock_posix.go:80 +0x18c
+net.(*UDPConn).WriteTo(0xc000010668, 0xc003636880, 0x27, 0x40, 0xc91780, 0xc005567f80, 0x51474fff, 0xc005d327e0, 0x6)
+	/usr/lib/google-golang/src/net/udpsock.go:170 +0x11d
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc000010668, 0xc91780, 0xc005567f80, 0xc004a803c0)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:201 +0x10f
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 488755 [runnable]:
+internal/poll.runtime_Semacquire(0xc00765f08c)
+	runtime/sema.go:61 +0x42
+internal/poll.(*fdMutex).rwlock(0xc00765f080, 0x523800, 0x20)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:154 +0x20d
+internal/poll.(*FD).writeLock(0xc00765f080, 0xc0036c9dd8, 0x7180e7)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:239 +0x4e
+internal/poll.(*FD).WriteTo(0xc00765f080, 0xc003636a00, 0x27, 0x40, 0xc8b980, 0xc007d644c0, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/internal/poll/fd_unix.go:322 +0x6f
+net.(*netFD).writeTo(0xc00765f080, 0xc003636a00, 0x27, 0x40, 0xc8b980, 0xc007d644c0, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/fd_unix.go:226 +0x87
+net.(*UDPConn).writeTo(0xc000010668, 0xc003636a00, 0x27, 0x40, 0xc005567f80, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/udpsock_posix.go:80 +0x18c
+net.(*UDPConn).WriteTo(0xc000010668, 0xc003636a00, 0x27, 0x40, 0xc91780, 0xc005567f80, 0x51474fff, 0xc005d327f6, 0x6)
+	/usr/lib/google-golang/src/net/udpsock.go:170 +0x11d
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc000010668, 0xc91780, 0xc005567f80, 0xc004a80460)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:201 +0x10f
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 488773 [runnable]:
+internal/poll.runtime_Semacquire(0xc00765f08c)
+	runtime/sema.go:61 +0x42
+internal/poll.(*fdMutex).rwlock(0xc00765f080, 0x523800, 0x20)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:154 +0x20d
+internal/poll.(*FD).writeLock(0xc00765f080, 0xc0036d3dd8, 0x7180e7)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:239 +0x4e
+internal/poll.(*FD).WriteTo(0xc00765f080, 0xc003636e80, 0x27, 0x40, 0xc8b980, 0xc007ceb600, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/internal/poll/fd_unix.go:322 +0x6f
+net.(*netFD).writeTo(0xc00765f080, 0xc003636e80, 0x27, 0x40, 0xc8b980, 0xc007ceb600, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/fd_unix.go:226 +0x87
+net.(*UDPConn).writeTo(0xc000010668, 0xc003636e80, 0x27, 0x40, 0xc005567f80, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/udpsock_posix.go:80 +0x18c
+net.(*UDPConn).WriteTo(0xc000010668, 0xc003636e80, 0x27, 0x40, 0xc91780, 0xc005567f80, 0x51474fff, 0xc005d32830, 0x6)
+	/usr/lib/google-golang/src/net/udpsock.go:170 +0x11d
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc000010668, 0xc91780, 0xc005567f80, 0xc004a80500)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:201 +0x10f
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 488761 [runnable]:
+internal/poll.runtime_Semacquire(0xc00765f08c)
+	runtime/sema.go:61 +0x42
+internal/poll.(*fdMutex).rwlock(0xc00765f080, 0x523800, 0x20)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:154 +0x20d
+internal/poll.(*FD).writeLock(0xc00765f080, 0xc0036c7dd8, 0x7180e7)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:239 +0x4e
+internal/poll.(*FD).WriteTo(0xc00765f080, 0xc003636b80, 0x27, 0x40, 0xc8b980, 0xc007d44960, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/internal/poll/fd_unix.go:322 +0x6f
+net.(*netFD).writeTo(0xc00765f080, 0xc003636b80, 0x27, 0x40, 0xc8b980, 0xc007d44960, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/fd_unix.go:226 +0x87
+net.(*UDPConn).writeTo(0xc000010668, 0xc003636b80, 0x27, 0x40, 0xc005567f80, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/udpsock_posix.go:80 +0x18c
+net.(*UDPConn).WriteTo(0xc000010668, 0xc003636b80, 0x27, 0x40, 0xc91780, 0xc005567f80, 0x51474fff, 0xc005d327f6, 0x6)
+	/usr/lib/google-golang/src/net/udpsock.go:170 +0x11d
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc000010668, 0xc91780, 0xc005567f80, 0xc004a80460)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:201 +0x10f
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 488770 [runnable]:
+internal/poll.runtime_Semacquire(0xc00765f08c)
+	runtime/sema.go:61 +0x42
+internal/poll.(*fdMutex).rwlock(0xc00765f080, 0x523800, 0x20)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:154 +0x20d
+internal/poll.(*FD).writeLock(0xc00765f080, 0xc0036ecdd8, 0x7180e7)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:239 +0x4e
+internal/poll.(*FD).WriteTo(0xc00765f080, 0xc003636dc0, 0x27, 0x40, 0xc8b980, 0xc007cea260, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/internal/poll/fd_unix.go:322 +0x6f
+net.(*netFD).writeTo(0xc00765f080, 0xc003636dc0, 0x27, 0x40, 0xc8b980, 0xc007cea260, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/fd_unix.go:226 +0x87
+net.(*UDPConn).writeTo(0xc000010668, 0xc003636dc0, 0x27, 0x40, 0xc005567f80, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/udpsock_posix.go:80 +0x18c
+net.(*UDPConn).WriteTo(0xc000010668, 0xc003636dc0, 0x27, 0x40, 0xc91780, 0xc005567f80, 0x51474fff, 0xc005d32830, 0x6)
+	/usr/lib/google-golang/src/net/udpsock.go:170 +0x11d
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc000010668, 0xc91780, 0xc005567f80, 0xc004a80500)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:201 +0x10f
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 488752 [runnable]:
+internal/poll.runtime_Semacquire(0xc00765f08c)
+	runtime/sema.go:61 +0x42
+internal/poll.(*fdMutex).rwlock(0xc00765f080, 0x523800, 0x20)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:154 +0x20d
+internal/poll.(*FD).writeLock(0xc00765f080, 0xc003930dd8, 0x7180e7)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:239 +0x4e
+internal/poll.(*FD).WriteTo(0xc00765f080, 0xc003636940, 0x27, 0x40, 0xc8b980, 0xc007d7f100, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/internal/poll/fd_unix.go:322 +0x6f
+net.(*netFD).writeTo(0xc00765f080, 0xc003636940, 0x27, 0x40, 0xc8b980, 0xc007d7f100, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/fd_unix.go:226 +0x87
+net.(*UDPConn).writeTo(0xc000010668, 0xc003636940, 0x27, 0x40, 0xc005567f80, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/udpsock_posix.go:80 +0x18c
+net.(*UDPConn).WriteTo(0xc000010668, 0xc003636940, 0x27, 0x40, 0xc91780, 0xc005567f80, 0x52cbf90d51474fff, 0xc005d327e0, 0x6)
+	/usr/lib/google-golang/src/net/udpsock.go:170 +0x11d
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc000010668, 0xc91780, 0xc005567f80, 0xc004a803c0)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:201 +0x10f
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 488758 [runnable]:
+internal/poll.runtime_Semacquire(0xc00765f08c)
+	runtime/sema.go:61 +0x42
+internal/poll.(*fdMutex).rwlock(0xc00765f080, 0x523800, 0x20)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:154 +0x20d
+internal/poll.(*FD).writeLock(0xc00765f080, 0xc0036c4dd8, 0x7180e7)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:239 +0x4e
+internal/poll.(*FD).WriteTo(0xc00765f080, 0xc003636ac0, 0x27, 0x40, 0xc8b980, 0xc007d65820, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/internal/poll/fd_unix.go:322 +0x6f
+net.(*netFD).writeTo(0xc00765f080, 0xc003636ac0, 0x27, 0x40, 0xc8b980, 0xc007d65820, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/fd_unix.go:226 +0x87
+net.(*UDPConn).writeTo(0xc000010668, 0xc003636ac0, 0x27, 0x40, 0xc005567f80, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/udpsock_posix.go:80 +0x18c
+net.(*UDPConn).WriteTo(0xc000010668, 0xc003636ac0, 0x27, 0x40, 0xc91780, 0xc005567f80, 0x795894e751474fff, 0xc005d327f6, 0x6)
+	/usr/lib/google-golang/src/net/udpsock.go:170 +0x11d
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc000010668, 0xc91780, 0xc005567f80, 0xc004a80460)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:201 +0x10f
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 488763 [runnable]:
+internal/poll.runtime_Semacquire(0xc00765f08c)
+	runtime/sema.go:61 +0x42
+internal/poll.(*fdMutex).rwlock(0xc00765f080, 0x523800, 0x20)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:154 +0x20d
+internal/poll.(*FD).writeLock(0xc00765f080, 0xc0036d9dd8, 0x7180e7)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:239 +0x4e
+internal/poll.(*FD).WriteTo(0xc00765f080, 0xc003636c00, 0x27, 0x40, 0xc8b980, 0xc007d45660, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/internal/poll/fd_unix.go:322 +0x6f
+net.(*netFD).writeTo(0xc00765f080, 0xc003636c00, 0x27, 0x40, 0xc8b980, 0xc007d45660, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/fd_unix.go:226 +0x87
+net.(*UDPConn).writeTo(0xc000010668, 0xc003636c00, 0x27, 0x40, 0xc005567f80, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/udpsock_posix.go:80 +0x18c
+net.(*UDPConn).WriteTo(0xc000010668, 0xc003636c00, 0x27, 0x40, 0xc91780, 0xc005567f80, 0x51474fff, 0xc005d327f6, 0x6)
+	/usr/lib/google-golang/src/net/udpsock.go:170 +0x11d
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc000010668, 0xc91780, 0xc005567f80, 0xc004a80460)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:201 +0x10f
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 488769 [runnable]:
+internal/poll.runtime_Semacquire(0xc00765f08c)
+	runtime/sema.go:61 +0x42
+internal/poll.(*fdMutex).rwlock(0xc00765f080, 0x523800, 0x20)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:154 +0x20d
+internal/poll.(*FD).writeLock(0xc00765f080, 0xc0036d7dd8, 0x7180e7)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:239 +0x4e
+internal/poll.(*FD).WriteTo(0xc00765f080, 0xc003636d80, 0x27, 0x40, 0xc8b980, 0xc007cffd00, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/internal/poll/fd_unix.go:322 +0x6f
+net.(*netFD).writeTo(0xc00765f080, 0xc003636d80, 0x27, 0x40, 0xc8b980, 0xc007cffd00, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/fd_unix.go:226 +0x87
+net.(*UDPConn).writeTo(0xc000010668, 0xc003636d80, 0x27, 0x40, 0xc005567f80, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/udpsock_posix.go:80 +0x18c
+net.(*UDPConn).WriteTo(0xc000010668, 0xc003636d80, 0x27, 0x40, 0xc91780, 0xc005567f80, 0x51474fff, 0xc005d32830, 0x6)
+	/usr/lib/google-golang/src/net/udpsock.go:170 +0x11d
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc000010668, 0xc91780, 0xc005567f80, 0xc004a80500)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:201 +0x10f
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 488757 [runnable]:
+internal/poll.runtime_Semacquire(0xc00765f08c)
+	runtime/sema.go:61 +0x42
+internal/poll.(*fdMutex).rwlock(0xc00765f080, 0x523800, 0x20)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:154 +0x20d
+internal/poll.(*FD).writeLock(0xc00765f080, 0xc00392ddd8, 0x7180e7)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:239 +0x4e
+internal/poll.(*FD).WriteTo(0xc00765f080, 0xc003636a80, 0x27, 0x40, 0xc8b980, 0xc007d651c0, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/internal/poll/fd_unix.go:322 +0x6f
+net.(*netFD).writeTo(0xc00765f080, 0xc003636a80, 0x27, 0x40, 0xc8b980, 0xc007d651c0, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/fd_unix.go:226 +0x87
+net.(*UDPConn).writeTo(0xc000010668, 0xc003636a80, 0x27, 0x40, 0xc005567f80, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/udpsock_posix.go:80 +0x18c
+net.(*UDPConn).WriteTo(0xc000010668, 0xc003636a80, 0x27, 0x40, 0xc91780, 0xc005567f80, 0x85ee0fe351474fff, 0xc005d327f6, 0x6)
+	/usr/lib/google-golang/src/net/udpsock.go:170 +0x11d
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc000010668, 0xc91780, 0xc005567f80, 0xc004a80460)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:201 +0x10f
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 488765 [runnable]:
+internal/poll.runtime_Semacquire(0xc00765f08c)
+	runtime/sema.go:61 +0x42
+internal/poll.(*fdMutex).rwlock(0xc00765f080, 0x523800, 0x20)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:154 +0x20d
+internal/poll.(*FD).writeLock(0xc00765f080, 0xc0036c3dd8, 0x7180e7)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:239 +0x4e
+internal/poll.(*FD).WriteTo(0xc00765f080, 0xc003636c80, 0x27, 0x40, 0xc8b980, 0xc007cfe340, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/internal/poll/fd_unix.go:322 +0x6f
+net.(*netFD).writeTo(0xc00765f080, 0xc003636c80, 0x27, 0x40, 0xc8b980, 0xc007cfe340, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/fd_unix.go:226 +0x87
+net.(*UDPConn).writeTo(0xc000010668, 0xc003636c80, 0x27, 0x40, 0xc005567f80, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/udpsock_posix.go:80 +0x18c
+net.(*UDPConn).WriteTo(0xc000010668, 0xc003636c80, 0x27, 0x40, 0xc91780, 0xc005567f80, 0x33a13f0551474fff, 0xc005d32830, 0x6)
+	/usr/lib/google-golang/src/net/udpsock.go:170 +0x11d
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc000010668, 0xc91780, 0xc005567f80, 0xc004a80500)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:201 +0x10f
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 488767 [runnable]:
+internal/poll.runtime_Semacquire(0xc00765f08c)
+	runtime/sema.go:61 +0x42
+internal/poll.(*fdMutex).rwlock(0xc00765f080, 0x523800, 0x20)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:154 +0x20d
+internal/poll.(*FD).writeLock(0xc00765f080, 0xc0036d5dd8, 0x7180e7)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:239 +0x4e
+internal/poll.(*FD).WriteTo(0xc00765f080, 0xc003636d00, 0x27, 0x40, 0xc8b980, 0xc007cff120, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/internal/poll/fd_unix.go:322 +0x6f
+net.(*netFD).writeTo(0xc00765f080, 0xc003636d00, 0x27, 0x40, 0xc8b980, 0xc007cff120, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/fd_unix.go:226 +0x87
+net.(*UDPConn).writeTo(0xc000010668, 0xc003636d00, 0x27, 0x40, 0xc005567f80, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/udpsock_posix.go:80 +0x18c
+net.(*UDPConn).WriteTo(0xc000010668, 0xc003636d00, 0x27, 0x40, 0xc91780, 0xc005567f80, 0xf2128d4e51474fff, 0xc005d32830, 0x6)
+	/usr/lib/google-golang/src/net/udpsock.go:170 +0x11d
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc000010668, 0xc91780, 0xc005567f80, 0xc004a80500)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:201 +0x10f
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 488745 [runnable]:
+internal/poll.runtime_Semacquire(0xc00765f08c)
+	runtime/sema.go:61 +0x42
+internal/poll.(*fdMutex).rwlock(0xc00765f080, 0x523800, 0x20)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:154 +0x20d
+internal/poll.(*FD).writeLock(0xc00765f080, 0xc000067dd8, 0x7180e7)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:239 +0x4e
+internal/poll.(*FD).WriteTo(0xc00765f080, 0xc003636780, 0x27, 0x40, 0xc8b980, 0xc007d92020, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/internal/poll/fd_unix.go:322 +0x6f
+net.(*netFD).writeTo(0xc00765f080, 0xc003636780, 0x27, 0x40, 0xc8b980, 0xc007d92020, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/fd_unix.go:226 +0x87
+net.(*UDPConn).writeTo(0xc000010668, 0xc003636780, 0x27, 0x40, 0xc005567f80, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/udpsock_posix.go:80 +0x18c
+net.(*UDPConn).WriteTo(0xc000010668, 0xc003636780, 0x27, 0x40, 0xc91780, 0xc005567f80, 0x51474fff, 0xc005d327e0, 0x6)
+	/usr/lib/google-golang/src/net/udpsock.go:170 +0x11d
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc000010668, 0xc91780, 0xc005567f80, 0xc004a803c0)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:201 +0x10f
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 485039 [IO wait]:
+internal/poll.runtime_pollWait(0x7f64ada7fff0, 0x72, 0xffffffffffffffff)
+	runtime/netpoll.go:184 +0x55
+internal/poll.(*pollDesc).wait(0xc00765fa18, 0x72, 0x500, 0x5ac, 0xffffffffffffffff)
+	/usr/lib/google-golang/src/internal/poll/fd_poll_runtime.go:87 +0xe4
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/lib/google-golang/src/internal/poll/fd_poll_runtime.go:92
+internal/poll.(*FD).Read(0xc00765fa00, 0xc003688600, 0x5ac, 0x5ac, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/internal/poll/fd_unix.go:169 +0x3bb
+net.(*netFD).Read(0xc00765fa00, 0xc003688600, 0x5ac, 0x5ac, 0xc005361f28, 0x55ad1c, 0x600)
+	/usr/lib/google-golang/src/net/fd_unix.go:202 +0x67
+net.(*conn).Read(0xc000010700, 0xc003688600, 0x5ac, 0x5ac, 0x4c4b40, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/net.go:184 +0xaf
+github.com/lucas-clemente/quic-go/integrationtests/tools/proxy.(*QuicProxy).runConnection(0xc005628be0, 0xc0073cef80, 0xc0046038e8, 0xc005641400)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/integrationtests/tools/proxy/proxy.go:244 +0xab
+created by github.com/lucas-clemente/quic-go/integrationtests/tools/proxy.(*QuicProxy).runProxy
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/integrationtests/tools/proxy/proxy.go:199 +0xb24
+
+goroutine 488771 [runnable]:
+internal/poll.runtime_Semacquire(0xc00765f08c)
+	runtime/sema.go:61 +0x42
+internal/poll.(*fdMutex).rwlock(0xc00765f080, 0x523800, 0x20)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:154 +0x20d
+internal/poll.(*FD).writeLock(0xc00765f080, 0xc0036eddd8, 0x7180e7)
+	/usr/lib/google-golang/src/internal/poll/fd_mutex.go:239 +0x4e
+internal/poll.(*FD).WriteTo(0xc00765f080, 0xc003636e00, 0x27, 0x40, 0xc8b980, 0xc007cea8e0, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/internal/poll/fd_unix.go:322 +0x6f
+net.(*netFD).writeTo(0xc00765f080, 0xc003636e00, 0x27, 0x40, 0xc8b980, 0xc007cea8e0, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/fd_unix.go:226 +0x87
+net.(*UDPConn).writeTo(0xc000010668, 0xc003636e00, 0x27, 0x40, 0xc005567f80, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/net/udpsock_posix.go:80 +0x18c
+net.(*UDPConn).WriteTo(0xc000010668, 0xc003636e00, 0x27, 0x40, 0xc91780, 0xc005567f80, 0x51474fff, 0xc005d32830, 0x6)
+	/usr/lib/google-golang/src/net/udpsock.go:170 +0x11d
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc000010668, 0xc91780, 0xc005567f80, 0xc004a80500)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:201 +0x10f
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+exit status 2

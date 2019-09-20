@@ -1,0 +1,164 @@
+panic: write udp 127.0.0.1:53955->127.0.0.1:45879: use of closed network connection
+
+goroutine 4887 [running]:
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc000010420, 0xc91780, 0xc004c16990, 0xc0000bc3c0)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:202 +0x175
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 1 [select]:
+github.com/lucas-clemente/quic-go.(*client).establishSecureConnection(0xc0000a0410, 0xc96fe0, 0xc0000280b0, 0x0, 0x6)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/client.go:296 +0x1b1
+github.com/lucas-clemente/quic-go.(*client).dial(0xc0000a0410, 0xc96fe0, 0xc0000280b0, 0xc004bb4390, 0xc0000bd540)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/client.go:273 +0x330
+github.com/lucas-clemente/quic-go.dialContext(0xc96fe0, 0xc0000280b0, 0xc99b60, 0xc000010060, 0xc91780, 0xc004bb4390, 0xc004bf8210, 0xf, 0xc006374780, 0xc0000bd540, ...)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/client.go:138 +0x25b
+github.com/lucas-clemente/quic-go.DialContext(0xc96fe0, 0xc0000280b0, 0xc99b60, 0xc000010060, 0xc91780, 0xc004bb4390, 0xc004bf8210, 0xf, 0xc006374780, 0xc0000bd4a0, ...)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/client.go:113 +0xc4
+github.com/lucas-clemente/quic-go.Dial(0xc99b60, 0xc000010060, 0xc91780, 0xc004bb4390, 0xc004bf8210, 0xf, 0xc006374780, 0xc0000bd4a0, 0xbdd321, 0xc00005ca80, ...)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/client.go:100 +0xd5
+github.com/lucas-clemente/quic-go/fuzzing/mitm.runTest(0xc0060b79f0, 0x12a05f200)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:116 +0x415
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial(0x7f3e442ae000, 0xc, 0xc, 0x3)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:216 +0x101
+go-fuzz-dep.Main(0xc003557f30, 0x4, 0x4)
+	go-fuzz-dep/main.go:36 +0x1ad
+main.main()
+	github.com/lucas-clemente/quic-go/fuzzing/mitm/go.fuzz.main/main.go:21 +0x7a
+
+goroutine 6 [syscall]:
+os/signal.signal_recv(0x0)
+	runtime/sigqueue.go:147 +0x9c
+os/signal.loop()
+	/usr/lib/google-golang/src/os/signal/signal_unix.go:23 +0x52
+created by os/signal.init.0
+	/usr/lib/google-golang/src/os/signal/signal_unix.go:29 +0x41
+
+goroutine 4929 [IO wait]:
+internal/poll.runtime_pollWait(0x7f3e4978d820, 0x72, 0x0)
+	runtime/netpoll.go:184 +0x55
+internal/poll.(*pollDesc).wait(0xc004c20418, 0x72, 0x500, 0x5ac, 0x0)
+	/usr/lib/google-golang/src/internal/poll/fd_poll_runtime.go:87 +0xe4
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/lib/google-golang/src/internal/poll/fd_poll_runtime.go:92
+internal/poll.(*FD).ReadFrom(0xc004c20400, 0xc004b8f800, 0x5ac, 0x5ac, 0x0, 0x0, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/internal/poll/fd_unix.go:219 +0x302
+net.(*netFD).readFrom(0xc004c20400, 0xc004b8f800, 0x5ac, 0x5ac, 0x73fb68, 0xc96fa0, 0xc0062fab40, 0xc0060b7a00, 0xbdd321)
+	/usr/lib/google-golang/src/net/fd_unix.go:208 +0x73
+net.(*UDPConn).readFrom(0xc000010080, 0xc004b8f800, 0x5ac, 0x5ac, 0xb7b460, 0x0, 0xc003464760, 0xc006336f20)
+	/usr/lib/google-golang/src/net/udpsock_posix.go:47 +0x82
+net.(*UDPConn).ReadFrom(0xc000010080, 0xc004b8f800, 0x5ac, 0x5ac, 0x0, 0x0, 0x0, 0x6, 0x6)
+	/usr/lib/google-golang/src/net/udpsock.go:121 +0xb6
+github.com/lucas-clemente/quic-go.(*packetHandlerMap).listen(0xc00010c090)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/packet_handler_map.go:170 +0x130
+created by github.com/lucas-clemente/quic-go.newPacketHandlerMap
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/packet_handler_map.go:62 +0x1b0
+
+goroutine 4892 [runnable]:
+crypto/internal/boring._Cfunc__goboringcrypto_HMAC_CTX_copy_ex(0xc0034fc190, 0xc0034fc128, 0x1)
+	_cgo_gotypes.go:1046 +0x4d
+crypto/internal/boring.(*boringHMAC).Sum(0xc0034fc120, 0x0, 0x0, 0x0, 0x1, 0x0, 0x0)
+	crypto/internal/boring/hmac.go:150 +0x68
+golang.org/x/crypto/hkdf.(*hkdf).Read(0xc004bcfc70, 0xc004b7d390, 0x10, 0x10, 0xc0039579e0, 0x12, 0x20)
+	/usr/local/google/home/tatianabradley/code/go/src/golang.org/x/crypto/hkdf/hkdf.go:63 +0x234
+github.com/marten-seemann/qtls.hkdfExpandLabel(0x5, 0xc003957500, 0x20, 0x20, 0xc000068c00, 0x0, 0x0, 0xbe142f, 0x8, 0x10, ...)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/marten-seemann/qtls/key_schedule.go:59 +0x368
+github.com/marten-seemann/qtls.HkdfExpandLabel(...)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/marten-seemann/qtls/key_schedule.go:45
+github.com/lucas-clemente/quic-go/internal/handshake.computeInitialKeyAndIV(0xc003957500, 0x20, 0x20, 0xc004b7d300, 0x10, 0x10, 0xc004b7d330, 0x10, 0x10, 0xc004b7d360, ...)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/internal/handshake/initial_aead.go:48 +0xc4
+github.com/lucas-clemente/quic-go/internal/handshake.NewInitialAEAD(0xc004b7c1f0, 0x6, 0x6, 0x1, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/internal/handshake/initial_aead.go:25 +0x19c
+github.com/lucas-clemente/quic-go/internal/testutils.ComposeInitialByPayload(0xc004b7c1f0, 0x6, 0x6, 0x0, 0x0, 0x0, 0x51474fff, 0xc004b7c1f0, 0x6, 0x6, ...)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/internal/testutils/testutils.go:84 +0x7e
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1(0xc99b60, 0xc000010420, 0xc91780, 0xc004c16990, 0xc0000bc3c0)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:200 +0xbd
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func2
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:210 +0x139
+
+goroutine 4933 [IO wait]:
+internal/poll.runtime_pollWait(0x7f3e4978d5b0, 0x72, 0x0)
+	runtime/netpoll.go:184 +0x55
+internal/poll.(*pollDesc).wait(0xc004c20898, 0x72, 0x500, 0x5ac, 0x0)
+	/usr/lib/google-golang/src/internal/poll/fd_poll_runtime.go:87 +0xe4
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/lib/google-golang/src/internal/poll/fd_poll_runtime.go:92
+internal/poll.(*FD).ReadFrom(0xc004c20880, 0xc0060d4c00, 0x5ac, 0x5ac, 0x0, 0x0, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/internal/poll/fd_unix.go:219 +0x302
+net.(*netFD).readFrom(0xc004c20880, 0xc0060d4c00, 0x5ac, 0x5ac, 0x9, 0x522f96, 0xc0060d4c00, 0x600, 0x0)
+	/usr/lib/google-golang/src/net/fd_unix.go:208 +0x73
+net.(*UDPConn).readFrom(0xc0000100b0, 0xc0060d4c00, 0x5ac, 0x5ac, 0x0, 0x0, 0xc0063386e8, 0x55ad1c)
+	/usr/lib/google-golang/src/net/udpsock_posix.go:47 +0x82
+net.(*UDPConn).ReadFromUDP(0xc0000100b0, 0xc0060d4c00, 0x5ac, 0x5ac, 0xbdd321, 0xc0062fac80, 0xc004bf8060, 0x6)
+	/usr/lib/google-golang/src/net/udpsock.go:109 +0xb6
+github.com/lucas-clemente/quic-go/integrationtests/tools/proxy.(*QuicProxy).runProxy(0xc004b98e60, 0xc00000ec80, 0x2)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/integrationtests/tools/proxy/proxy.go:182 +0xba
+created by github.com/lucas-clemente/quic-go/integrationtests/tools/proxy.NewQuicProxy
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/integrationtests/tools/proxy/proxy.go:138 +0x48e
+
+goroutine 4938 [select]:
+github.com/lucas-clemente/quic-go.(*sendQueue).Run(0xc00000f320, 0x0, 0x284)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/send_queue.go:25 +0x129
+github.com/lucas-clemente/quic-go.(*session).run.func1(0xc0033dc900)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/session.go:415 +0x4c
+created by github.com/lucas-clemente/quic-go.(*session).run
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/session.go:414 +0xe7
+
+goroutine 4937 [select]:
+github.com/lucas-clemente/quic-go/internal/handshake.(*cryptoSetup).RunHandshake(0xc00351fc20)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/internal/handshake/crypto_setup.go:267 +0x184
+created by github.com/lucas-clemente/quic-go.(*session).run
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/session.go:413 +0xc2
+
+goroutine 4936 [select]:
+github.com/lucas-clemente/quic-go.(*session).run(0xc0033dc900, 0x0, 0x0)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/session.go:449 +0x434
+github.com/lucas-clemente/quic-go.(*client).establishSecureConnection.func1(0xc0000a0410, 0xc003522360)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/client.go:289 +0x59
+created by github.com/lucas-clemente/quic-go.(*client).establishSecureConnection
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/client.go:288 +0x92
+
+goroutine 4935 [IO wait]:
+internal/poll.runtime_pollWait(0x7f3e4978d750, 0x72, 0x0)
+	runtime/netpoll.go:184 +0x55
+internal/poll.(*pollDesc).wait(0xc004c20218, 0x72, 0x500, 0x5ac, 0x0)
+	/usr/lib/google-golang/src/internal/poll/fd_poll_runtime.go:87 +0xe4
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/lib/google-golang/src/internal/poll/fd_poll_runtime.go:92
+internal/poll.(*FD).ReadFrom(0xc004c20200, 0xc004b8ec00, 0x5ac, 0x5ac, 0x0, 0x0, 0x0, 0x0, 0x0)
+	/usr/lib/google-golang/src/internal/poll/fd_unix.go:219 +0x302
+net.(*netFD).readFrom(0xc004c20200, 0xc004b8ec00, 0x5ac, 0x5ac, 0x73fb68, 0xc96fa0, 0xc0062fad00, 0xc0060b7ee0, 0xbdd321)
+	/usr/lib/google-golang/src/net/fd_unix.go:208 +0x73
+net.(*UDPConn).readFrom(0xc000010060, 0xc004b8ec00, 0x5ac, 0x5ac, 0xb7b460, 0x0, 0xc0034646e0, 0xc006336720)
+	/usr/lib/google-golang/src/net/udpsock_posix.go:47 +0x82
+net.(*UDPConn).ReadFrom(0xc000010060, 0xc004b8ec00, 0x5ac, 0x5ac, 0x0, 0x0, 0x0, 0xc0053ee7e0, 0xc0063367d0)
+	/usr/lib/google-golang/src/net/udpsock.go:121 +0xb6
+github.com/lucas-clemente/quic-go.(*packetHandlerMap).listen(0xc00010c1b0)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/packet_handler_map.go:170 +0x130
+created by github.com/lucas-clemente/quic-go.newPacketHandlerMap
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/packet_handler_map.go:62 +0x1b0
+
+goroutine 4930 [select]:
+github.com/lucas-clemente/quic-go.(*baseServer).accept(0xc0000bd400, 0xc96fe0, 0xc0000280b0, 0xc0000104a0, 0xc0060c6600, 0x5ac, 0x5ac)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/server.go:300 +0x10d
+github.com/lucas-clemente/quic-go.(*baseServer).Accept(0xc0000bd400, 0xc96fe0, 0xc0000280b0, 0xc0039cb310, 0x5ac, 0x54d156, 0xc0060c6600)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/server.go:296 +0x59
+github.com/lucas-clemente/quic-go/fuzzing/mitm.startServerAndProxy.func1(0xc952e0, 0xc0000bd400)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:85 +0x7d
+created by github.com/lucas-clemente/quic-go/fuzzing/mitm.startServerAndProxy
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/fuzzing/mitm/fuzz.go:83 +0x2cd
+
+goroutine 4939 [chan receive]:
+github.com/lucas-clemente/quic-go/internal/handshake.(*cryptoSetup).ReadHandshakeMessage(0xc00351fc20, 0xc004b10be0, 0x813320, 0xc00351fc20, 0xc00344c000, 0x163)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/internal/handshake/crypto_setup.go:487 +0x66
+github.com/marten-seemann/qtls.(*Conn).readHandshake(0xc0033cc700, 0xc00344c016, 0xc00344c000, 0x163, 0x180)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/marten-seemann/qtls/conn.go:1008 +0xcf0
+github.com/marten-seemann/qtls.(*Conn).clientHandshake(0xc0033cc700, 0x0, 0x0)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/marten-seemann/qtls/handshake_client.go:176 +0x2b0
+github.com/marten-seemann/qtls.(*Conn).Handshake(0xc0033cc700, 0x0, 0x0)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/marten-seemann/qtls/conn.go:1388 +0x1d3
+github.com/lucas-clemente/quic-go/internal/handshake.(*cryptoSetup).RunHandshake.func1(0xc00351fc20, 0xc0035223c0, 0xc00002efc0)
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/internal/handshake/crypto_setup.go:260 +0x83
+created by github.com/lucas-clemente/quic-go/internal/handshake.(*cryptoSetup).RunHandshake
+	/usr/local/google/home/tatianabradley/code/go/src/github.com/lucas-clemente/quic-go/internal/handshake/crypto_setup.go:258 +0xc1
+exit status 2

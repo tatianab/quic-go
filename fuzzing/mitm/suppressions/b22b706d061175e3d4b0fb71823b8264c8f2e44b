@@ -1,0 +1,2 @@
+panic: write udp 127.0.0.1:57371->127.0.0.1:51370: use of closed network connection
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial.func1

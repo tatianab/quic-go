@@ -1,0 +1,5 @@
+panic: CRYPTO_ERROR: unexpected handshake message: 238
+github.com/lucas-clemente/quic-go/fuzzing/mitm.runTest
+github.com/lucas-clemente/quic-go/fuzzing/mitm.FuzzInitial
+go-fuzz-dep.Main
+main.main
